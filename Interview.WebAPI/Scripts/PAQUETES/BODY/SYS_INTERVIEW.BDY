@@ -1,0 +1,13 @@
+create or replace NONEDITIONABLE PACKAGE BODY SYS_INTERVIEW IS
+   --OBJETIVO:Obtener la información de las cuentas
+   --HISTORIA:
+   --H0: Gabriel López Creación 
+   --
+  PROCEDURE GETINFOCUENTA (
+  PCUENTAINFO OUT SYS_REFCURSOR) IS
+BEGIN 
+  -- Obtener informacion cuenta
+  SYS.OBTENERINFOCUENTA(PCUENTAINFO);
+END GETINFOCUENTA;
+
+END SYS_INTERVIEW;
