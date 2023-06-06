@@ -18,8 +18,7 @@ namespace Interview.WebAPI.Controllers
             OracleParameter pCuentaInfo = new OracleParameter();
             ConexionODP ObjConexion = new ConexionODP();
             List<DTOCuenta> DTOCuentas = new List<DTOCuenta>();
-            DTOCuenta objCuenta = new DTOCuenta();
-
+            
             cmd.Connection = ObjConexion.IniConexion();
             pCuentaInfo.OracleDbType = OracleDbType.RefCursor;
             pCuentaInfo.Direction = System.Data.ParameterDirection.Output;
@@ -29,6 +28,7 @@ namespace Interview.WebAPI.Controllers
             OracleDataReader reader = cmd.ExecuteReader();
             while (reader.Read()) 
             {
+                DTOCuenta objCuenta = new DTOCuenta();
                 objCuenta.ID = Convert.ToInt32(reader.GetValue(0));
                 objCuenta.Cuenta = Convert.ToString(reader.GetValue(1));
                 objCuenta.Descripcion = Convert.ToString(reader.GetValue(2));
